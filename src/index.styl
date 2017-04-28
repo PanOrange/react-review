@@ -1,0 +1,206 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot');
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot') format('embedded-opentype'),
+          url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),
+          url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff') format('woff'),
+          url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf') format('truetype'),
+          url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg') format('svg');
+  font-weight:normal;
+  font-style:normal
+}
+
+$width = 600px
+
+$c-primary = #03A052
+$c-primary-light = lighten($c-primary, 12%)
+$c-secondary = #eee
+Sc-font = #777
+
+html
+  min-height 100%
+  position relative
+body
+  margin 0 0 130px
+  padding 90px 0 0
+  min-height 100%
+  font-family 'Raleway', sans-serif
+  font-size 16px
+  color Sc-font
+  background-color: $c-secondary
+  .loader
+    display none
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    padding-top 400px
+    text-align: center
+    color $c-secondary
+    background-color rgba(Sc-font, 0.8)
+    z-index 20
+    &.active
+      display block
+  .btn
+    position absolute
+    padding 10px 20px
+    outline none
+    border-radius 4px
+    font-weight bold
+    font-size 16px
+    color white
+    border 1px solid darken($c-primary, 30%)
+    background-color: $c-primary-light
+    cursor pointer
+    transition background-color 0.3s ease-in 0s
+    &:hover
+      background-color: lighten(@background-color, 12%)
+    &.btn-add
+      top 0
+      right 0
+      height 200px
+      text-align center
+      -webkit-writing-mode vertical-lr !important
+      writing-mode vertical-lr !important
+      z-index 22
+    &.btn-load
+      left 0
+      margin-right 20px
+  .header
+    position fixed
+    top 0
+    height 80px
+    width 100%
+    font-size 32px
+    font-weight 900
+    letter-spacing 4px
+    color $c-secondary
+    background-color $c-primary
+    box-shadow 0 4px 10px Sc-font
+    z-index 10
+    .header-inner
+      width $width
+      margin 0 auto
+      padding 20px
+  .form-holder
+    position fixed
+    top 100px
+    right 0
+    z-index 20
+    .form
+      position absolute
+      top 0
+      right -1000px
+      width $width - 300px
+      border-radius 5px
+      background-color $c-primary-light
+      box-shadow 0 10px 60px #222
+      overflow hidden
+      transition right 0.5s ease 0s
+      &.active
+        right 0
+      fieldset
+        border none
+      .close
+        position absolute
+        top 0
+        right 20px
+        display inline
+        line-height 40px
+        font-size 40px
+        color $c-secondary
+        transform rotate(45deg)
+        cursor pointer
+        transition color 0.5s ease 0s
+        &:hover
+          color Sc-font
+      label
+        color $c-secondary
+      input
+      textarea
+        display block
+        padding 10px
+        width 90%
+        border-radius 4px
+        border none
+        color $c-primary
+        background-color lighten($c-primary-light, 90%)
+        resize none
+      textarea
+        height 200px
+      .btn-publish
+        display block
+        margin 0 auto
+        padding 10px
+        width 50%
+        outline none
+        border 1px solid darken($c-primary, 30%)
+        border-radius 4px
+        font-weight bold
+        font-size 16px
+        background-color $c-secondary
+        color Sc-font
+        transition all 0.5s ease 0s
+        &:hover
+          color $c-primary
+          background-color darken($c-secondary, 20%)
+      .form-item
+        margin-top 20px
+  .wrapper
+    position relative
+    width $width
+    margin 0 auto
+    padding-bottom 60px
+    z-index 5
+    .review-item
+      margin 20px 0
+      padding 10px
+      border-radius 4px
+      background-color: lighten($c-primary-light, 90%)
+      box-shadow 0 4px 15px #777
+      .author
+      .date
+        font-weight bold
+      .date
+        float right
+      .review-text
+        padding 20px
+        background-color: #fff
+        border-radius 4px
+  .footer
+    position absolute
+    bottom 0
+    left 0
+    padding 20px
+    height 80px
+    width 100%
+    color $c-secondary
+    background-color $c-primary
+    .footer-inner
+      margin 0 auto
+      width $width
+      .social
+      .contact
+        display inline-block
+        vertical-align top
+        margin-right 40px
+      .social>h2
+        margin-top 0
+        margin-bottom 10px
+      .social>ul
+        margin 0
+        padding 0
+        list-style none
+        &>li
+          display inline-block
+          vertical-align middle
+          padding 10px
+          .fa
+            text-decoration none
+            color $c-secondary
+            transition color 0.3s ease 0s
+            &:hover
+              color $c-primary-light
