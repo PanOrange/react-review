@@ -27,27 +27,34 @@ class App extends Component {
                 <Header>Review list</Header>
                 <div className="form-holder">
                     <Form />
-                    { !loadReview.isFormActive && !loadReview.isLoading && <b className="btn btn-add" onClick={this.showForm}> + Add review</b>}
+                    {
+                        !loadReview.isFormActive
+                        && !loadReview.isLoading
+                        && <b className="btn btn-add" onClick={this.showForm}> + Add review</b>
+                    }
                 </div>
                 <main className="wrapper">
-
-                    { printedReviews ? (
-                            printedReviews.map((item) => {
-                                return <Review
-                                    key={item.date}
-                                    text={item.text}
-                                    author={item.author}
-                                    date={item.date}
-                                />;
-                            })
-                        ) : (
-                            <p>No reviews available yet</p>
-                        )
+                    {
+                        printedReviews ?
+                            (
+                                printedReviews.map((item) => {
+                                    return <Review
+                                        key={item.date}
+                                        text={item.text}
+                                        author={item.author}
+                                        date={item.date}
+                                    />;
+                                })
+                            ) : (
+                                <p>No reviews available yet</p>
+                            )
                     }
-                    { (storedReviews.length > 0) && <button className="btn btn-load" onClick={this.printReview}>Load more...</button>}
+                    {
+                        (storedReviews.length > 0)
+                        && <button className="btn btn-load" onClick={this.printReview}>Load more...</button>
+                    }
                 </main>
                 <Footer />
-
             </div>
         );
     }

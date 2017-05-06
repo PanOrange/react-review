@@ -49,7 +49,7 @@ const reviewReducer = function(state = initialState, action) {
 
     switch (type) {
         case "USER_ASKED_MORE":
-            let newItem = state.storedReviews.splice(0, 1);
+            let newItem = state.storedReviews.splice(0, 2);
             return update(state, { printedReviews: { $push: newItem} });
         case "USER_OPENED_FORM":
             return update(state, {

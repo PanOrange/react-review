@@ -24,12 +24,14 @@ class Form extends Component {
 
     onCloseForm = () => {
         this.props.dispatch(reviewActions.userClosedForm());
-    }
+        this.setState(initialState);
+    };
 
     onSubmit = (e) => {
         e.preventDefault();
 
-        if (this.state.author && this.state.text) {
+        if (this.state.author.length > 1 && this.state.text.length > 1 ) {
+
             this.setState({
                 date: (+new Date())
             });
@@ -39,12 +41,10 @@ class Form extends Component {
             setTimeout(() => {
                 this.props.dispatch(reviewActions.printReview(this.state));
                 this.setState(initialState);
-
             }, 3000);
 
             window.scrollTo(0, 0)
         }
-
     };
 
     render() {
@@ -73,7 +73,10 @@ class Form extends Component {
                         </label>
                     </div>
                     <div className="form-item">
-                        <button className="btn-publish" onClick={this.onSubmit}>Publish</button>
+                        <button
+                            className="btn-publish"
+                            onClick={this.onSubmit}
+                        >Publish</button>
                     </div>
                 </fieldset>
             </form>

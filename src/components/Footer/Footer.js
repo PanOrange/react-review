@@ -32,12 +32,14 @@ class Footer extends Component {
                             </li>
                         </ul>
                     </div>
-                    <div className="contact">Central ave, 123<br/>01001, Ukraine, Kyiv</div>
+                    <div className="contact">
+                        <div>Central ave, 123</div>
+                        <div>01001, Ukraine, Kyiv</div>
+                    </div>
                 </div>
             </footer>
         );
     }
-
 }
 
 export default Footer;
